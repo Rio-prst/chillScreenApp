@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ChillScreen App</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+<body>
+    <nav>
+        <h1>ChillScreen</h1>
+        <div class="search-container">
+            <form id="search-movie">
+                <input type="search" id="search-input" placeholder="Search movies" name="query">
+                <button>
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
+                    </svg>
+                </button>
+        </form>
+        </div>
+    </nav>
+    <main>
+        <div id="home-section" class="active">
+            <h1>Escape The Rush</h1>
+            <h2>Chill With The Best Picks</h2>
+            <div class="popular-movies-container">
+                <h2>Popular Movies</h2>
+                <hr>
+                <div class="wrapper"></div>
+            </div>
+        </div>
+        <div id="list-movie-section" class="hidden">
+            <div class="list-movie-container">
+                <h2>Search Results</h2>
+                <hr>
+                <div class="search-results-wrapper"></div>
+                <button id="back-button" class="hidden">Back</button>
+            </div>
+        </div>
+    </main>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+<script type="module" src="script.js"></script>
+</html>

@@ -1,0 +1,516 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('assets/download.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    background-attachment: fixed;
+    min-height: 100vh;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 50px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+nav h1 {
+    color: #F49F00;
+    font-size: 2.5rem;
+}
+
+.search-container form svg {
+    width: 24px; 
+    height: 24px; 
+    color: #ffff; 
+    cursor: pointer; 
+}
+
+.search-container form button {
+    background: none;
+    border: none;
+}
+
+.search-container {
+    max-width: 400px;
+}
+
+.search-container form {
+    display: flex;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.15);
+    border-radius: 25px;
+    padding: 5px 15px; 
+    border: 1px solid #fff;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.search-container form:focus-within {
+    background-color: rgba(255, 255, 255, 0.25);
+    border-color: rgba(255, 255, 255, 0.5);
+}
+
+.search-container input[type="search"] {
+    flex-grow: 1; 
+    padding: 8px 10px; 
+    border: none; 
+    background: transparent;
+    color: white; 
+    font-size: 1em;
+    outline: none; 
+    width: 200px; 
+}
+
+.search-container input[type="search"]::placeholder {
+    color: rgb(146, 141, 141);
+}
+
+main {
+    margin: 30px;
+}
+
+main h1 {
+    font-size: 2.5rem;
+}
+
+main h1, h2 {
+    color: #ffff;
+    text-align: center;
+    margin: 10px auto;
+}
+
+.card {
+    background-color: grey;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    margin: 10px;
+    flex-shrink: 0;
+    width: 200px;
+    height: 280px;
+    margin: 20px;
+    position: relative;
+    overflow: hidden;
+}
+
+.card-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.card:hover {
+    transform: scale(1.05);
+}
+
+
+.details-on-hover {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.7);
+    color: #fff;
+    padding: 15px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    width: 100%;
+    height: 100%;
+    overflow-y: auto;
+    border-radius: 10px;
+    font-size: 15px;
+    padding-top: 100px;
+}
+
+.card:hover .details-on-hover {
+    opacity: 1;
+}
+
+
+.popular-movies-container {
+    position: relative;
+    width: 90%;
+    max-width: 1200px;
+    margin: 60px auto;
+    overflow: hidden; 
+    border-radius: 15px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+    min-height: 250px; 
+}
+
+.popular-movies-container h2 {
+    text-align: left;
+}
+
+.popular-movies-container hr {
+    border: none;
+    height: 3px;
+    width: 190px;
+    background-color: #F49F00;
+}
+
+.wrapper {
+    display: flex;
+    animation: scrollLeft 30s linear infinite; 
+}
+
+.wrapper:hover {
+    animation-play-state: paused;
+}
+
+.slide {
+    flex: 0 0 auto;
+    width: calc(100% / var(--cards-per-view));
+}
+
+.list-movie-container {
+    position: relative;
+    width: 1200px;
+    height: 800px;
+    margin: 60px auto;
+    overflow: hidden; 
+    border-radius: 15px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+}
+
+.list-movie-container h2 {
+    text-align: left;
+
+}
+
+.list-movie-container hr {
+    border: none;
+    width: 180px;
+    height: 3px;
+    background-color: #F49F00;
+}
+
+.list-movie-container #back-button {
+    display: block;
+    margin-left: auto;
+    border: none;
+    margin-right: 25px;
+    width: 100px;
+    height: 40px;
+    border-radius: 6px;
+    color: #fff;
+    background-color: #F49F00;
+    cursor: pointer;
+}
+
+.list-movie-container #back-button:hover {
+    background-color: #ca880d;
+    transition: opacity 0.3s ease;
+}
+
+.search-results-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.hidden {
+    display: none;
+}
+
+.active {
+    display: block;
+}
+
+#home-section,
+#list-movie-section {
+    transition: opacity 0.3s ease;
+}
+
+@keyframes scrollLeft {
+    0% {
+        transform: translateX(0%); 
+    }
+    100% {
+        transform: translateX(calc(-100% * var(--cards-per-view) / 4)); 
+        transform: translateX(-50%);
+    }
+}
+
+/* --- Responsive Styles: Mobile (e.g., up to 767px) --- */
+@media (max-width: 767px) {
+    nav {
+        flex-direction: row; /* Kembali ke baris untuk navigasi */
+        justify-content: space-between; /* Untuk menempatkan logo dan ikon search terpisah */
+        align-items: center;
+        padding: 15px 20px;
+    }
+
+    nav h1 {
+        font-size: 1.8rem;
+        margin-bottom: 0; /* Hapus margin bawah yang ditambahkan sebelumnya */
+    }
+
+    .search-container {
+        width: auto; /* Biarkan lebarnya menyesuaikan konten */
+        max-width: none;
+    }
+
+    .search-container form {
+        width: auto; /* Biarkan lebarnya menyesuaikan konten */
+        padding: 5px 10px; /* Padding lebih kecil untuk ikon saja */
+    }
+
+    .search-container input[type="search"] {
+        width: 0; /* Sembunyikan input teks secara default */
+        padding: 0;
+        opacity: 0; /* Buat transisi lebih halus */
+        visibility: hidden; /* Pastikan tidak bisa diklik saat tersembunyi */
+        transition: width 0.3s ease, opacity 0.3s ease, padding 0.3s ease, visibility 0.3s ease;
+    }
+
+    /* Ketika input pencarian dalam fokus atau ada teks, lebarkan */
+    .search-container input[type="search"]:focus,
+    .search-container input[type="search"]:not(:placeholder-shown) {
+        width: 150px; /* Lebar yang diinginkan saat input terlihat */
+        padding: 8px 10px;
+        opacity: 1;
+        visibility: visible;
+    }
+
+    .search-container input[type="search"]::placeholder {
+        color: transparent; /* Sembunyikan placeholder saat input tersembunyi */
+        transition: color 0.3s ease;
+    }
+
+    .search-container input[type="search"]:focus::placeholder {
+        color: rgb(146, 141, 141); /* Tampilkan placeholder saat fokus */
+    }
+
+    /* Pastikan ikon search tetap terlihat */
+    .search-container form svg {
+        margin-left: 0; /* Hapus margin yang mungkin ditambahkan sebelumnya jika ada */
+    }
+
+    /* Bagian lainnya dari mobile media query tetap sama */
+    main {
+        margin: 15px;
+    }
+
+    main h1, main h2 {
+        font-size: 1.8rem;
+        text-align: center;
+    }
+
+    .popular-movies-container {
+        margin: 30px auto;
+        min-height: 180px;
+        border-radius: 10px;
+    }
+
+    .popular-movies-container h2 {
+        text-align: center;
+    }
+
+    .popular-movies-container hr {
+        margin: 0 auto 20px auto;
+    }
+
+    .wrapper {
+        animation: scrollLeftMobile 20s linear infinite;
+    }
+
+    .card {
+        width: 150px;
+        height: 220px;
+        margin: 10px;
+    }
+
+    .details-on-hover {
+        font-size: 13px;
+        padding: 10px;
+        padding-top: 60px;
+    }
+
+    .list-movie-container {
+        width: 95%;
+        margin: 30px auto;
+        border-radius: 10px;
+        padding: 10px;
+    }
+
+    .list-movie-container h2 {
+        text-align: center;
+    }
+
+    .list-movie-container hr {
+        margin: 0 auto 15px auto;
+    }
+
+    .list-movie-container #back-button {
+        width: 70px;
+        height: 30px;
+        font-size: 0.9em;
+        margin: 15px auto 0 auto;
+    }
+
+    .search-results-wrapper {
+        justify-content: center;
+    }
+
+    @keyframes scrollLeftMobile {
+        0% {
+            transform: translateX(0%);
+        }
+        100% {
+            transform: translateX(calc(-100% * var(--cards-per-view) / 2));
+        }
+    }
+}
+
+@media (max-width: 767px) {
+    nav {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        padding: 15px 20px;
+    }
+
+    nav h1 {
+        font-size: 1.8rem;
+        margin-bottom: 0; 
+    }
+
+    .search-container {
+        max-width: none;
+    }
+
+    .search-container form {
+        width: 180px;
+        padding: 5px 10px; 
+        border-radius: 20px; 
+    }
+
+    .search-container input[type="search"] {
+        flex-grow: 1; 
+        width: auto; 
+        padding: 6px 8px; 
+        font-size: 0.9em; 
+    }
+
+    .search-container form svg {
+        width: 20px;
+        height: 20px;
+    }
+
+    main {
+        margin: 15px;
+    }
+
+    main h1, main h2 {
+        font-size: 1.8rem;
+        text-align: center;
+    }
+
+    .popular-movies-container {
+        margin: 30px auto;
+        min-height: 180px;
+        border-radius: 10px;
+    }
+
+    .popular-movies-container h2 {
+        text-align: center;
+    }
+
+    .popular-movies-container hr {
+        margin: 0 auto 20px auto;
+    }
+
+    .wrapper {
+        animation: scrollLeftMobile 20s linear infinite;
+    }
+
+    .card {
+        width: 150px;
+        height: 220px;
+        margin: 10px;
+    }
+
+    .details-on-hover {
+        font-size: 13px;
+        padding: 10px;
+        padding-top: 60px;
+    }
+
+    .list-movie-container {
+        width: 95%;
+        margin: 30px auto;
+        border-radius: 10px;
+        padding: 10px;
+    }
+
+    .list-movie-container h2 {
+        text-align: center;
+    }
+
+    .list-movie-container hr {
+        margin: 0 auto 15px auto;
+    }
+
+    .list-movie-container #back-button {
+        width: 70px;
+        height: 30px;
+        font-size: 0.9em;
+        margin: 15px auto 0 auto;
+    }
+
+    .search-results-wrapper {
+        justify-content: center;
+    }
+
+    @keyframes scrollLeftMobile {
+        0% {
+            transform: translateX(0%);
+        }
+        100% {
+            transform: translateX(calc(-100% * var(--cards-per-view) / 2));
+        }
+    }
+}
+
+@media (max-width: 480px) {
+    nav h1 {
+        font-size: 1.5rem;
+    }
+
+    .search-container form {
+        width: 150px; 
+    }
+
+    .search-container input[type="search"] {
+        font-size: 0.8em; 
+        pointer-events: auto !important;
+    }
+
+    main h1, main h2 {
+        font-size: 1.5rem;
+    }
+
+    .card {
+        width: 130px;
+        height: 190px;
+        margin: 8px;
+    }
+
+    .details-on-hover {
+        font-size: 12px;
+        padding-top: 40px;
+    }
+
+    .popular-movies-container hr,
+    .list-movie-container hr {
+        width: 120px;
+    }
+}
