@@ -239,62 +239,58 @@ main h1, h2 {
     }
 }
 
-/* --- Responsive Styles: Mobile (e.g., up to 767px) --- */
 @media (max-width: 767px) {
     nav {
-        flex-direction: row; /* Kembali ke baris untuk navigasi */
-        justify-content: space-between; /* Untuk menempatkan logo dan ikon search terpisah */
+        flex-direction: row; 
+        justify-content: space-between; 
         align-items: center;
         padding: 15px 20px;
     }
 
     nav h1 {
         font-size: 1.8rem;
-        margin-bottom: 0; /* Hapus margin bawah yang ditambahkan sebelumnya */
+        margin-bottom: 0; 
     }
 
     .search-container {
-        width: auto; /* Biarkan lebarnya menyesuaikan konten */
+        width: auto; 
         max-width: none;
     }
 
     .search-container form {
-        width: auto; /* Biarkan lebarnya menyesuaikan konten */
-        padding: 5px 10px; /* Padding lebih kecil untuk ikon saja */
+        width: auto; 
+        padding: 5px 10px; 
     }
 
     .search-container input[type="search"] {
-        width: 0; /* Sembunyikan input teks secara default */
+        width: 0; 
         padding: 0;
-        opacity: 0; /* Buat transisi lebih halus */
-        visibility: hidden; /* Pastikan tidak bisa diklik saat tersembunyi */
+        opacity: 0; 
+        visibility: hidden;
         transition: width 0.3s ease, opacity 0.3s ease, padding 0.3s ease, visibility 0.3s ease;
     }
 
-    /* Ketika input pencarian dalam fokus atau ada teks, lebarkan */
     .search-container input[type="search"]:focus,
     .search-container input[type="search"]:not(:placeholder-shown) {
-        width: 150px; /* Lebar yang diinginkan saat input terlihat */
+        width: 150px; 
         padding: 8px 10px;
         opacity: 1;
         visibility: visible;
     }
 
     .search-container input[type="search"]::placeholder {
-        color: transparent; /* Sembunyikan placeholder saat input tersembunyi */
+        color: transparent; 
         transition: color 0.3s ease;
     }
 
     .search-container input[type="search"]:focus::placeholder {
-        color: rgb(146, 141, 141); /* Tampilkan placeholder saat fokus */
+        color: rgb(146, 141, 141); 
     }
 
-    /* Pastikan ikon search tetap terlihat */
     .search-container form svg {
-        margin-left: 0; /* Hapus margin yang mungkin ditambahkan sebelumnya jika ada */
+        margin-left: 0;
     }
 
-    /* Bagian lainnya dari mobile media query tetap sama */
     main {
         margin: 15px;
     }
