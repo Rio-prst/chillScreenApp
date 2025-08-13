@@ -3,7 +3,7 @@ import {popularMovies, searchMovie} from './api.js';
 const popularTitles = [
     'The Shawshank Redemption', 'The Godfather', 'The Dark Knight', 'The Godfather Part II',
     '12 Angry Men', 'The Lord of the Rings: The Return of the King', "Schindler's List", 
-    'The Lord of the Rings: The Fellowship of the Ring', ' The Good, the Bad and the Ugly'
+    'The Lord of the Rings: The Fellowship of the Ring', 'The Good, the Bad and the Ugly'
 ];
 
 async function renderPopularMovies() {

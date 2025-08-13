@@ -1,5 +1,5 @@
-const API_KEY = "85223202";
-const url = "https://www.omdbapi.com/";
+const API_KEY = 'b8dd565c';
+const url = 'https://www.omdbapi.com/';
 
 async function popularMovies(title) {
   try {
@@ -14,7 +14,7 @@ async function popularMovies(title) {
     if (response.data.Response === "True") {
       return response.data;
     } else {
-      throw new Error(response.data.Error) || "Cannot get the popular movies";
+      throw new Error(response.data.Error || 'Cannot get popular movies');
     }
   } catch (err) {
     console.error(err.message);
